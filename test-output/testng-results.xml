@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results skipped="0" failed="0" total="2" passed="2">
+  <reporter-output>
+  </reporter-output>
+  <suite name="Suite" duration-ms="37990" started-at="2020-07-19T11:09:42Z" finished-at="2020-07-19T11:10:20Z">
+    <groups>
+    </groups>
+    <test name="Test" duration-ms="37990" started-at="2020-07-19T11:09:42Z" finished-at="2020-07-19T11:10:20Z">
+      <class name="testPkg.checkoutFlowFailurecreditCard">
+        <test-method status="PASS" signature="checkOutFFailure()[pri:0, instance:testPkg.checkoutFlowFailurecreditCard@5f2050f6]" name="checkOutFFailure" duration-ms="12543" started-at="2020-07-19T16:40:07Z" finished-at="2020-07-19T16:40:20Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkOutFFailure -->
+      </class> <!-- testPkg.checkoutFlowFailurecreditCard -->
+      <class name="testPkg.checkoutFlowcreditCard">
+        <test-method status="PASS" signature="checkOutSuccess()[pri:0, instance:testPkg.checkoutFlowcreditCard@dfd3711]" name="checkOutSuccess" duration-ms="25426" started-at="2020-07-19T16:39:42Z" finished-at="2020-07-19T16:40:07Z">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- checkOutSuccess -->
+      </class> <!-- testPkg.checkoutFlowcreditCard -->
+    </test> <!-- Test -->
+  </suite> <!-- Suite -->
+</testng-results>
