@@ -6,6 +6,7 @@ package seleniumMethods;
 
 import java.util.concurrent.TimeUnit;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -58,6 +59,133 @@ public class ApplicationMethods {
 		driver.manage().window().maximize();
 		driver.manage().timeouts().implicitlyWait(10, TimeUnit.SECONDS);
 		System.out.println("Page opened is " + driver.getCurrentUrl());
+	}
+
+	/**
+	 * This method performs 'findelement' operation depending on the type of
+	 * locator selected and the locator used for the same
+	 *
+	 * @author Vikram.Kulkarni
+	 * @param takes
+	 *            locator Type and locator of the web element as input
+	 * @return the element found as Web Element
+	 */
+	public WebElement findElement(String locatorType, String locator) {
+		try {
+			if (locatorType.equals("id")) {
+				element = driver.findElement(By.id(locator));
+
+			} else if (locatorType.equals("name")) {
+				element = driver.findElement(By.name(locator));
+
+			} else if (locatorType.equals("xpath")) {
+				element = driver.findElement(By.xpath(locator));
+			} else if (locatorType.equals("cssSelector")) {
+				element = driver.findElement(By.cssSelector(locator));
+
+			} else
+				System.out.println("Wrong choice..Please select valid locator or locatorType");
+
+		} catch (Exception ex) {
+			System.out.println("Getting Exception while finding Element: " + ex.getMessage());
+			Assert.fail();
+		}
+		return element;
+	}
+
+	/**
+	 * This method performs sendKeys operation depending on the type of locator
+	 * selected and the locator used for the same
+	 *
+	 * @author Vikram.Kulkarni
+	 * @param takes
+	 *            locator Type, locator and the value of the web element as
+	 *            input
+	 * @return nothing
+	 */
+	public void enterText(String locatorType, String locator, String value) {
+		try {
+			if (locatorType.equals("id")) {
+				element = findElement("id", locator);
+				element.clear();
+				element.sendKeys(value);
+
+			} else if (locatorType.equals("name")) {
+				element = findElement("name", locator);
+				element.clear();
+				element.sendKeys(value);
+
+			} else if (locatorType.equals("xpath")) {
+				element = findElement("xpath", locator);
+				element.clear();
+				element.sendKeys(value);
+
+			} else if (locatorType.equals("cssSelector")) {
+				element = findElement("cssSelector", locator);
+				element.clear();
+				element.sendKeys(value);
+
+			} else
+				System.out.println("Wrong choice..Please select valid xpath or locatorType");
+
+		} catch (Exception ex) {
+			System.out.println("Getting Exception: " + ex.getMessage());
+			Assert.fail();
+		}
+
+	}
+
+	public void click(String locatorType, String locator) {
+		try {
+			if (locatorType.equals("id")) {
+				element = findElement("id", locator);
+				element.click();
+
+			} else if (locatorType.equals("name")) {
+				element = findElement("name", locator);
+				element.click();
+			} else if (locatorType.equals("xpath")) {
+				element = findElement("xpath", locator);
+				element.click();
+
+			} else if (locatorType.equals("cssSelector")) {
+				element = findElement("cssSelector", locator);
+				element.click();
+
+			} else
+				System.out.println("Wrong choice..Please select valid xpath or locatorType");
+
+		} catch (Exception ex) {
+			System.out.println("Getting Exception: " + ex.getMessage());
+			Assert.fail();
+		}
+	}
+
+	public String getAttribute(String locatorType, String locator, String attribute) {
+		try {
+			if (locatorType.equals("id")) {
+				element = findElement("id", locator);
+				element.getAttribute(attribute);
+
+			} else if (locatorType.equals("name")) {
+				element = findElement("name", locator);
+				element.getAttribute(attribute);
+			} else if (locatorType.equals("xpath")) {
+				element = findElement("xpath", locator);
+				element.getAttribute(attribute);
+
+			} else if (locatorType.equals("cssSelector")) {
+				element = findElement("cssSelector", locator);
+				element.getAttribute(attribute);
+
+			} else
+				System.out.println("Wrong choice..Please select valid xpath or locatorType");
+
+		} catch (Exception ex) {
+			System.out.println("Getting Exception: " + ex.getMessage());
+			Assert.fail();
+		}
+		return attribute;
 	}
 
 	/**
